@@ -13,57 +13,23 @@ db = SQLAlchemy(app)
 
 POSTGRES = {
     'user': 'postgres',
-    'pw': 'root',
+    #'pw': 'root',
+    'pw': 'Rohit123',
     'db': 'examdb',
-    'host': 'localhost',
+    #'host': 'localhost',
+    'host': 'database-2.cfog6a1gwdlx.us-east-2.rds.amazonaws.com',
     'port': '5432',
 }
 
-app.config['DEBUG'] = True
+
+#app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://%(user)s:\
 %(pw)s@%(host)s:%(port)s/%(db)s' % POSTGRES
 db.init_app(app)
 
 
 numberOfQuestions = 4
-qns = {
-    "section1": [
-                ["q1","What is your name?",["Ram","Prem","Raghu","peter"],"Prem"],
-                # ["q2","Where are you?",["bangalore","Pune","Chennai"],"bangalore"],
-                # ["q3","What is your fav food?",["a","b","c","d"],"b"],
-                # ["q4","q4?",["a","b","c","d"],"b"],
-                # ["q5","q5?",["a","b","c","d"],"b"]
-                ],
-    "section2": [
-                ["q21","What is your name?",["Ram","Prem","Raghu","peter"],"Prem"],
-                # ["q22","Where are you?",["bangalore","Pune","Chennai"],"bangalore"],
-                # ["q23","What is your fav food?",["a","b","c","d"],"b"],
-                # ["q24","q4?",["a","b","c","d"],"b"],
-                # ["q25","q5?",["a","b","c","d"],"b"]
-                ],
-    "section3": [
-                ["q41","What is your name?",["Ram","Prem","Raghu","peter"],"Prem"],
-                # ["q42","Where are you?",["bangalore","Pune","Chennai"],"bangalore"],
-                # ["q43","What is your fav food?",["a","b","c","d"],"b"],
-                # ["q44","q4?",["a","b","c","d"],"b"],
-                # ["q45","q5?",["a","b","c","d"],"b"]
-                ],                
-    "section4": [
-                ["q61","What is your name?",["Ram","Prem","Raghu","peter"],"Prem"],
-                # ["q62","Where are you?",["bangalore","Pune","Chennai"],"bangalore"],
-                # ["q63","What is your fav food?",["a","b","c","d"],"b"],
-                # ["q64","q4?",["a","b","c","d"],"b"],
-                # ["q65","q5?",["a","b","c","d"],"b"]
-                ],
-    "section5": [
-                ["q81","What is your name?",["Ram","Prem","Raghu","peter"],"Prem"],
-                # ["q82","Where are you?",["bangalore","Pune","Chennai"],"bangalore"],
-                # ["q83","What is your fav food?",["a","b","c","d"],"b"],
-                # ["q84","q4?",["a","b","c","d"],"b"],
-                # ["q85","q5?",["a","b","c","d"],"b"]
-                ]
-
-}
+qns = {}
 
 @app.route('/getQuestions/',methods=['POST'])
 def getQuestions():
@@ -120,4 +86,4 @@ def index():
 
 if __name__ == '__main__':
       #ui.run() 
-	  app.run(host = '0.0.0.0', debug=False)
+	  app.run(host = '127.0.0.1', debug=False)
